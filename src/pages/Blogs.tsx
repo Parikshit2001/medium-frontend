@@ -4,8 +4,17 @@ import axios from "axios";
 import { URL } from "../constants/constants";
 import { Link } from "react-router-dom";
 
+interface getBlogsResponse {
+  title: string,
+  content: string,
+  id: string,
+  author: {
+    name: string
+  }
+}
+
 function Blogs() {
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState<getBlogsResponse[] | []>([]);
   useEffect(() => {
     const getBlogs = async () => {
       axios.get(`${URL}/api/v1/blog/bulk`).then((response) => {

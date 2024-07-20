@@ -1,6 +1,12 @@
-import React from "react";
 
-function BlogTile({ name, date, title, content }) {
+interface blogTileProps{
+  name: string,
+  date: string,
+  title: string,
+  content: string
+}
+
+function BlogTile({ name, date, title, content }: blogTileProps) {
   return (
     <div className="flex flex-col space-y-2 py-3">
       {/* metadata for blog - Avatar, authorName, date */}
