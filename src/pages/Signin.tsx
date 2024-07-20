@@ -62,7 +62,7 @@ function Signin() {
         </div>
       </div>
       <div className="col-span-1 min-h-screen">
-        <Quote person={"dz"} company={"das"} statememt={"das"} />
+        <Quote person={"Jeff Bezos"} company={"Amazon"} statememt={"I believe you have to be willing to be misunderstood if you're going to innovate"} />
       </div>
     </div>
   );
