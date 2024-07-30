@@ -17,7 +17,7 @@ function Blog() {
       });
     };
     getBlog();
-  }, []);
+  });
   return (
     <div>
       <Appbar />
