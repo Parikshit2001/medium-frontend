@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Appbar } from "../components";
 import axios from "axios";
 import { URL } from "../constants/constants";
@@ -9,9 +9,11 @@ function Publish() {
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
   const navigate = useNavigate();
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     // TODO: Implement navigating to signin page if user getDetails endpint return null
+    inputRef.current?.focus();
   }, []);
 
   const handlePublish = async () => {
@@ -40,9 +42,10 @@ function Publish() {
       {/* Top Part */}
       <Appbar />
       {/* Botton Part */}
-      <div className="flex flex-col space-y-2 py-5 ml-36">
-        <div className="border-l pt-5">
+      <div className="flex flex-col space-y-2 py-6 ml-36">
+        <div className="border-l pt-5 mb-4">
           <input
+            ref={inputRef}
             type="text"
             value={title}
             placeholder="Title"
