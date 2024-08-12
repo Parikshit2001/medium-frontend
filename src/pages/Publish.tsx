@@ -12,7 +12,18 @@ function Publish() {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    // TODO: Implement navigating to signin page if user getDetails endpint return null
+    const getData = async () => {
+      axios
+        .get(`${URL}/api/v1/user/info`, { withCredentials: true })
+        .then((response) => {
+          console.log(response)
+        })
+        .catch((error) => {
+          console.log(error);
+          navigate("/signin");
+        });
+    };
+    getData();
     inputRef.current?.focus();
   }, []);
 
